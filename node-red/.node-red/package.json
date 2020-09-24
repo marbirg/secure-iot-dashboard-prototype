@@ -1,0 +1,11 @@
+{
+    "name": "node-red-project",
+    "description": "A Node-RED Project",
+    "version": "0.0.1",
+    "private": true,
+    "dependencies": {
+        "node-red-contrib-merge": "^0.1.1",
+        "node-red-contrib-mqtt-broker": "~0.2.5",
+        "node-red-dashboard": "^2.23.0"
+    }
+}

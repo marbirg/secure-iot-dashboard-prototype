@@ -1,0 +1,25 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'start',
+1 verbose cli   '--cache',
+1 verbose cli   '/data/.npm',
+1 verbose cli   '--',
+1 verbose cli   '--userDir',
+1 verbose cli   '/data' ]
+2 info using npm@6.14.4
+3 info using node@v10.21.0
+4 verbose config Skipping project config: /usr/src/node-red/.npmrc. (matches userconfig)
+5 verbose stack Error: ENOENT: no such file or directory, open '/usr/src/node-red/package.json'
+6 verbose cwd /usr/src/node-red
+7 verbose Linux 5.7.10-arch1-1
+8 verbose argv "/usr/local/bin/node" "/usr/local/bin/npm" "start" "--cache" "/data/.npm" "--" "--userDir" "/data"
+9 verbose node v10.21.0
+10 verbose npm  v6.14.4
+11 error code ENOENT
+12 error syscall open
+13 error path /usr/src/node-red/package.json
+14 error errno -2
+15 error enoent ENOENT: no such file or directory, open '/usr/src/node-red/package.json'
+16 error enoent This is related to npm not being able to find a file.
+17 verbose exit [ -2, true ]
