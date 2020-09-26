@@ -626,6 +626,23 @@
      "file": "/data/node_modules/node-red-dashboard/nodes/ui_spacer.js"
     }
    }
+  },
+  "node-red-contrib-merge": {
+   "name": "node-red-contrib-merge",
+   "version": "0.1.1",
+   "local": true,
+   "nodes": {
+    "merge": {
+     "name": "merge",
+     "types": [
+      "merge"
+     ],
+     "enabled": true,
+     "local": true,
+     "module": "node-red-contrib-merge",
+     "file": "/data/node_modules/node-red-contrib-merge/17-merge.js"
+    }
+   }
   }
  },
  "_credentialSecret": "6a7487e43da0c5a58bc0b69b4b22ff00edd8f8bc1515dd492badd940155a7b1a",
