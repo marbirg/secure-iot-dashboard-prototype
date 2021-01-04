@@ -1,6 +1,7 @@
 attrs==19.3.0
 ifaddr==0.1.7
 jsonschema==3.2.0
+numpy==1.19.4
 pyee==7.0.2
 pyrsistent==0.16.0
 six==1.15.0
