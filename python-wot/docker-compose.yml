@@ -1,0 +1,12 @@
+version: "3"
+services:
+  patient-a:
+    build: .
+    ports:
+      - "9001:8888"
+    environment:
+      - CONFIG_FILE=configA.json
+  patient-b:
+    build: .
+    ports:
+      - "9002:8888"
