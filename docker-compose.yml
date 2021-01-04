@@ -1,27 +1,28 @@
-version: '2.0'
+version: '3.0'
 services:
-  wot:
+  patient-a:
     build: ./python-wot
     ports:
-    - "8888:8888"
+      - "9001:8888"
     volumes:
-     - ./python-wot:/usr/src/app
+      - ./python-wot:/usr/src/app
+    environment:
+      - CONFIG_FILE=configA.json
+  patient-b:
+    build: ./python-wot
+    ports:
+      - "9002:8888"
+    volumes:
+      - ./python-wot:/usr/src/app
+    environment:
+      - CONFIG_FILE=configB.json
   node-red:
     image: nodered/node-red
     ports:
     - 1880:1880
     - 1881:1881
     links:
-    - wot
-    - thingsboard
+    - patient-a
+    - patient-b
     volumes:
     - ./node-red/.node-red:/data
-  thingsboard:
-    image: thingsboard/tb-postgres
-    ports:
-    - 9090:9090
-    - 1883:1883
-    - 5683:5683
-    volumes:
-    - ./thingsboard/.mytb-data:/data
-    - ./thingsboard/.mytb-logs:/var/log/thingsboard
