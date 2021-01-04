@@ -1,6 +1,7 @@
 
 setup:
 	virtualenv venv
+	. ./venv/bin/activate && pip install -r requirements.txt
 
 docker-build:
 	docker build -t wot-docker-image .
