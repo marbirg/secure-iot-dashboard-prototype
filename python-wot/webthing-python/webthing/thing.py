@@ -7,7 +7,7 @@ from jsonschema.exceptions import ValidationError
 class Thing:
     """A Web Thing."""
 
-    def __init__(self, id_, title, type_=[], description='', classification='secret'):
+    def __init__(self, id_, title, type_=[], description='', classification={}):
         """
         Initialize the object.
 
