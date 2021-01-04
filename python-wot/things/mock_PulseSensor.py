@@ -2,6 +2,9 @@ import logging
 
 from webthing import (Action, Event, Property, MultipleThings, Thing, Value,
                       WebThingServer)
+
+from security.dlm import DLM
+
 import tornado.ioloop
 import random
 import numpy as np
@@ -23,12 +26,14 @@ class FakePulseSensor(Thing):
     _instance_number = 0
     _values = [1,2,3,4]
     
-    def __init__(self, classification='private', name=None):
+    def __init__(self, classification=None, name=None):
         type(self)._instance_number+=1
         self.device_id = FakePulseSensor._id_prefix + str(type(self)._instance_number) #id
         self.name = name if name else self.device_id
+        self.classification = classification if classification else DLM()
+
         
-        print("Create new device:", self.name)
+        print("Create new device:", self.name,"With classification:",classification)
         # self._position_index = random.randint(0, len(FakePositionDevice._values)-1) 
         # self._position = FakePositionDevice._values[self._position_index] # Initial value
         self._value = self.getInitialValue()
