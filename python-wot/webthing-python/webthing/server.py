@@ -96,7 +96,6 @@ class BaseHandler(tornado.web.RequestHandler):
         """
         self.things = things
         self.hosts = hosts
-        print("WOT HOSTS:", hosts)
 
     def prepare(self):
         """Validate Host header."""
@@ -104,7 +103,7 @@ class BaseHandler(tornado.web.RequestHandler):
         print(host)
         if host is not None and host.lower() in self.hosts:
             return
-        print("403 ERROR raised")
+        return #Allow any host
         raise tornado.web.HTTPError(403)
 
     def get_thing(self, thing_id):
@@ -187,7 +186,6 @@ class ThingHandler(tornado.websocket.WebSocketHandler, Subscriber):
         host = self.request.headers.get('Host', None)
         if host is not None and host in self.hosts:
             return
-
         raise tornado.web.HTTPError(403)
 
     def set_default_headers(self, *args, **kwargs):
