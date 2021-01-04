@@ -5,6 +5,9 @@ setup-thingsboard:
 	mkdir -p ${PWD}/thingsboard/.mytb-logs && \
 	sudo chown -R 799:799 ${PWD}/thingsboard/.mytb-logs
 
+remove-thingsboard-container:
+	docker rm wot-classification-poc_thingsboard_1
+
 setup-nodered:
 	sudo chown -R 1000:1000 ${PWD}/node-red/.node-red
 
