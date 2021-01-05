@@ -106,7 +106,7 @@ class FakePulseSensor(Thing):
         # self.position = FakePositionDevice._values[self._position_index]
         mu = self._value
         sig = 1
-        self._value = np.random.normal(mu,sig,1)
+        self._value = np.random.normal(mu,sig,1)[0]
         return self._value
         return 4
         # return FakePositionDevice._values[self._position_index]
