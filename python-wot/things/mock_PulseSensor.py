@@ -25,6 +25,8 @@ class FakePulseSensor(Thing):
     _id_prefix = 'urn:dev:ops:fake-pulse-'
     _instance_number = 0
     _values = [1,2,3,4]
+    _max_value = 170
+    _min_value = 40
     
     def __init__(self, classification=None, name=None):
         type(self)._instance_number+=1
@@ -107,6 +109,11 @@ class FakePulseSensor(Thing):
         mu = self._value
         sig = 1
         self._value = np.random.normal(mu,sig,1)[0]
+        if self._value < self._min_value:
+            self._value = self._min_value
+        if self._value > self._max_value:
+            self._value = self._max_value
+            
         return self._value
         return 4
         # return FakePositionDevice._values[self._position_index]
