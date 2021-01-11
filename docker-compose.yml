@@ -16,6 +16,14 @@ services:
       - ./python-wot:/usr/src/app
     environment:
       - CONFIG_FILE=configB.json
+  patient-c:
+    build: ./python-wot
+    ports:
+      - "9003:8888"
+    volumes:
+      - ./python-wot:/usr/src/app
+    environment:
+      - CONFIG_FILE=configC.json
   node-red:
     image: nodered/node-red
     ports:
