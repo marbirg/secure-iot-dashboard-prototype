@@ -9,20 +9,22 @@ import tornado.ioloop
 import random
 import numpy as np
 
+import uuid
+
 # For debug
-use_static = True
-static_values = {
-    'urn:dev:ops:fake-position-1':1,
-    'urn:dev:ops:fake-position-2':2,
-    'urn:dev:ops:fake-position-3':3,
-    'urn:dev:ops:fake-position-4':3,
-    'urn:dev:ops:fake-position-5':2,
-    'urn:dev:ops:fake-position-6':4,
-}
+# use_static = True
+# static_values = {
+#     'urn:dev:ops:fake-position-1':1,
+#     'urn:dev:ops:fake-position-2':2,
+#     'urn:dev:ops:fake-position-3':3,
+#     'urn:dev:ops:fake-position-4':3,
+#     'urn:dev:ops:fake-position-5':2,
+#     'urn:dev:ops:fake-position-6':4,
+# }
 
 class FakePulseSensor(Thing):
     """A sensor that detects movment."""
-    _id_prefix = 'urn:dev:ops:fake-pulse-'
+    _id_prefix = 'mock:pulse:' + str(uuid.uuid4())
     _instance_number = 0
     _values = [1,2,3,4]
     _max_value = 170
