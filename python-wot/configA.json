@@ -1,4 +1,4 @@
 {
     "name":"PatientA",
-    "readers":["PatientA"]
+    "readers":["PatientA", "Doctors"]
 }
