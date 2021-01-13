@@ -1,30 +1,36 @@
 import logging
-
+import uuid
 from webthing import (Action, Event, Property, MultipleThings, Thing, Value,
                       WebThingServer)
+
+from security.dlm import DLM
+
 import tornado.ioloop
 import random
 
 # For debug
-use_static = True
-static_values = {
-    'urn:dev:ops:fake-position-1':1,
-    'urn:dev:ops:fake-position-2':2,
-    'urn:dev:ops:fake-position-3':3,
-    'urn:dev:ops:fake-position-4':3,
-    'urn:dev:ops:fake-position-5':2,
-    'urn:dev:ops:fake-position-6':4,
-}
+# use_static = True
+# static_values = {
+#     'urn:dev:ops:fake-position-1':1,
+#     'urn:dev:ops:fake-position-2':2,
+#     'urn:dev:ops:fake-position-3':3,
+#     'urn:dev:ops:fake-position-4':3,
+#     'urn:dev:ops:fake-position-5':2,
+#     'urn:dev:ops:fake-position-6':4,
+# }
 
 class FakePositionDevice(Thing):
     """A sensor that detects movment."""
+    _id_prefix = 'mock:position:'
     _instance_number = 0
     _values = [1,2,3,4]
     
     def __init__(self, classification='private', name=None):
         FakePositionDevice._instance_number+=1
-        self.device_id = 'urn:dev:ops:fake-position-' + str(FakePositionDevice._instance_number) #id
+        self.device_id = FakePositionDevice._id_prefix + str(uuid.uuid4()) #id
+        
         self.name = name if name else self.device_id
+
         print("Create new device:", self.name)
         self._position_index = random.randint(0, len(FakePositionDevice._values)-1) 
         self._position = FakePositionDevice._values[self._position_index] # Initial value
@@ -78,12 +84,11 @@ class FakePositionDevice(Thing):
     # @staticmethod
     def read_from_gpio(self):
         """Mimic an actual sensor updating its reading every couple seconds."""
-        if (use_static):
-            if (self.device_id in static_values.keys()):
-                return static_values[self.device_id]
-            else:
-                return 1;
-        
+        # if (use_static):
+        #     if (self.device_id in static_values.keys()):
+        #         return static_values[self.device_id]
+        #     else:
+        #         return 1;
         if (random.random()<0.2):
             if (random.random()<0.5):
                 self._decrease_position_index()
