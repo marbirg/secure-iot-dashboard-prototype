@@ -1,29 +1,35 @@
 version: '3.0'
 services:
   patient-a:
-    build: ./python-wot
+    build:
+      context: ./python-wot
+      dockerfile: Dockerfile.pulse_device
     ports:
       - "9001:8888"
     volumes:
       - ./python-wot:/usr/src/app
     environment:
-      - CONFIG_FILE=configA.json
+      - CONFIG_FILE=hospital_use_case/configA.json
   patient-b:
-    build: ./python-wot
+    build:
+      context: ./python-wot
+      dockerfile: Dockerfile.pulse_device
     ports:
       - "9002:8888"
     volumes:
       - ./python-wot:/usr/src/app
     environment:
-      - CONFIG_FILE=configB.json
+      - CONFIG_FILE=hospital_use_case/configB.json
   patient-c:
-    build: ./python-wot
+    build:
+      context: ./python-wot
+      dockerfile: Dockerfile.pulse_device
     ports:
       - "9003:8888"
     volumes:
       - ./python-wot:/usr/src/app
     environment:
-      - CONFIG_FILE=configC.json
+      - CONFIG_FILE=hospital_use_case/configC.json
   node-red:
     image: nodered/node-red
     ports:
