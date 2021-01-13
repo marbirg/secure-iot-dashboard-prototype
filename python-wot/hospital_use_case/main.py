@@ -1,6 +1,6 @@
 from __future__ import division, print_function
 
-import os,sys,inspect
+# import os,sys,inspect
 # currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
 # parentdir = os.path.dirname(currentdir)
 # sys.path.insert(0,"/home/marcus/code/wot-classification-poc/python-wot/webthing-python")
