@@ -30,6 +30,72 @@ services:
       - ./python-wot:/usr/src/app
     environment:
       - CONFIG_FILE=hospital_use_case/configC.json
+  taxi-a1:
+    build:
+      context: ./python-wot
+      dockerfile: Dockerfile.taxi_car
+    ports:
+      - "9101:8888"
+    volumes:
+      - ./python-wot:/usr/src/app
+    environment:
+      - FRIENDLY_NAME=taxi-position-companyA1
+      - CONFIG_FILE=taxi_car_use_case/configA.json
+  taxi-a2:
+    build:
+      context: ./python-wot
+      dockerfile: Dockerfile.taxi_car
+    ports:
+      - "9102:8888"
+    volumes:
+      - ./python-wot:/usr/src/app
+    environment:
+      - FRIENDLY_NAME=taxi-position-companyA2
+      - CONFIG_FILE=taxi_car_use_case/configA.json
+  taxi-b1:
+    build:
+      context: ./python-wot
+      dockerfile: Dockerfile.taxi_car
+    ports:
+      - "9201:8888"
+    volumes:
+      - ./python-wot:/usr/src/app
+    environment:
+      - FRIENDLY_NAME=taxi-position-companyB1
+      - CONFIG_FILE=taxi_car_use_case/configB.json
+  taxi-b2:
+    build:
+      context: ./python-wot
+      dockerfile: Dockerfile.taxi_car
+    ports:
+      - "9202:8888"
+    volumes:
+      - ./python-wot:/usr/src/app
+    environment:
+      - FRIENDLY_NAME=taxi-position-companyB2
+      - CONFIG_FILE=taxi_car_use_case/configB.json
+  taxi-c1:
+    build:
+      context: ./python-wot
+      dockerfile: Dockerfile.taxi_car
+    ports:
+      - "9301:8888"
+    volumes:
+      - ./python-wot:/usr/src/app
+    environment:
+      - FRIENDLY_NAME=taxi-position-companyC1
+      - CONFIG_FILE=taxi_car_use_case/configC.json
+  taxi-c2:
+    build:
+      context: ./python-wot
+      dockerfile: Dockerfile.taxi_car
+    ports:
+      - "9302:8888"
+    volumes:
+      - ./python-wot:/usr/src/app
+    environment:
+      - FRIENDLY_NAME=taxi-position-companyC2
+      - CONFIG_FILE=taxi_car_use_case/configC.json
   node-red:
     image: nodered/node-red
     ports:
@@ -38,5 +104,11 @@ services:
     links:
     - patient-a
     - patient-b
+    - taxi-a1
+    - taxi-a2
+    - taxi-b1
+    - taxi-b2
+    - taxi-c1
+    - taxi-c2
     volumes:
     - ./node-red/.node-red:/data
