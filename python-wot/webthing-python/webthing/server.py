@@ -15,6 +15,7 @@ from .errors import PropertyError
 from .subscriber import Subscriber
 from .utils import get_addresses, get_ip
 
+import logging
 
 @tornado.gen.coroutine
 def perform_action(action):
@@ -183,7 +184,9 @@ class ThingHandler(tornado.websocket.WebSocketHandler, Subscriber):
 
     def prepare(self):
         """Validate Host header."""
+        return # Allow any host
         host = self.request.headers.get('Host', None)
+        logging.info("Hosts:" + str(self.hosts))
         if host is not None and host in self.hosts:
             return
         raise tornado.web.HTTPError(403)
