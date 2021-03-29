@@ -2,3 +2,5 @@
 **/__pycache__
 thingsboard
 node-red/.node-red/devices
+python-wot/venv
+data
