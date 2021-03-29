@@ -1,0 +1,9 @@
+import * as TD from "@node-wot/td-tools";
+export default class ProtocolHelpers {
+    static updatePropertyFormWithTemplate(form: TD.Form, tdTemplate: WoT.ThingDescription, propertyName: string): void;
+    static updateActionFormWithTemplate(form: TD.Form, tdTemplate: WoT.ThingDescription, actionName: string): void;
+    static updateEventFormWithTemplate(form: TD.Form, tdTemplate: WoT.ThingDescription, eventName: string): void;
+    static getPropertyContentType(td: WoT.ThingDescription, propertyName: string, uriScheme: string): string;
+    static getActionContentType(td: WoT.ThingDescription, actionName: string, uriScheme: string): string;
+    static getEventContentType(td: WoT.ThingDescription, eventName: string, uriScheme: string): string;
+}

@@ -1,0 +1,81 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var ProtocolHelpers = (function () {
+    function ProtocolHelpers() {
+    }
+    ProtocolHelpers.updatePropertyFormWithTemplate = function (form, tdTemplate, propertyName) {
+        if (form && tdTemplate && tdTemplate.properties && tdTemplate.properties[propertyName] && tdTemplate.properties[propertyName].forms) {
+            for (var _i = 0, _a = tdTemplate.properties[propertyName].forms; _i < _a.length; _i++) {
+                var formTemplate = _a[_i];
+                if (formTemplate.href) {
+                }
+                if (formTemplate.contentType) {
+                    form.contentType = formTemplate.contentType;
+                    return;
+                }
+            }
+        }
+    };
+    ProtocolHelpers.updateActionFormWithTemplate = function (form, tdTemplate, actionName) {
+        if (form && tdTemplate && tdTemplate.actions && tdTemplate.actions[actionName] && tdTemplate.actions[actionName].forms) {
+            for (var _i = 0, _a = tdTemplate.actions[actionName].forms; _i < _a.length; _i++) {
+                var formTemplate = _a[_i];
+                if (formTemplate.href) {
+                }
+                if (formTemplate.contentType) {
+                    form.contentType = formTemplate.contentType;
+                    return;
+                }
+            }
+        }
+    };
+    ProtocolHelpers.updateEventFormWithTemplate = function (form, tdTemplate, eventName) {
+        if (form && tdTemplate && tdTemplate.events && tdTemplate.events[eventName] && tdTemplate.events[eventName].forms) {
+            for (var _i = 0, _a = tdTemplate.events[eventName].forms; _i < _a.length; _i++) {
+                var formTemplate = _a[_i];
+                if (formTemplate.href) {
+                }
+                if (formTemplate.contentType) {
+                    form.contentType = formTemplate.contentType;
+                    return;
+                }
+            }
+        }
+    };
+    ProtocolHelpers.getPropertyContentType = function (td, propertyName, uriScheme) {
+        if (td && propertyName && uriScheme && td.properties && td.properties[propertyName] && td.properties[propertyName].forms && Array.isArray(td.properties[propertyName].forms)) {
+            for (var _i = 0, _a = td.properties[propertyName].forms; _i < _a.length; _i++) {
+                var form = _a[_i];
+                if (form.href && form.href.startsWith(uriScheme) && form.contentType) {
+                    return form.contentType;
+                }
+            }
+        }
+        return undefined;
+    };
+    ProtocolHelpers.getActionContentType = function (td, actionName, uriScheme) {
+        if (td && actionName && uriScheme && td.actions && td.actions[actionName] && td.actions[actionName].forms && Array.isArray(td.actions[actionName].forms)) {
+            for (var _i = 0, _a = td.actions[actionName].forms; _i < _a.length; _i++) {
+                var form = _a[_i];
+                if (form.href && form.href.startsWith(uriScheme) && form.contentType) {
+                    return form.contentType;
+                }
+            }
+        }
+        return undefined;
+    };
+    ProtocolHelpers.getEventContentType = function (td, eventName, uriScheme) {
+        if (td && eventName && uriScheme && td.events && td.events[eventName] && td.events[eventName].forms && Array.isArray(td.events[eventName].forms)) {
+            for (var _i = 0, _a = td.events[eventName].forms; _i < _a.length; _i++) {
+                var form = _a[_i];
+                if (form.href && form.href.startsWith(uriScheme) && form.contentType) {
+                    return form.contentType;
+                }
+            }
+        }
+        return undefined;
+    };
+    return ProtocolHelpers;
+}());
+exports.default = ProtocolHelpers;
+//# sourceMappingURL=protocol-helpers.js.map

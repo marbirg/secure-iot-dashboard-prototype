@@ -1,7 +1,7 @@
 {
     "node-red": {
         "name": "node-red",
-        "version": "1.1.3",
+        "version": "1.2.8",
         "local": false,
         "nodes": {
             "inject": {
@@ -640,6 +640,91 @@
                 "local": true,
                 "module": "node-red-contrib-merge",
                 "file": "/data/node_modules/node-red-contrib-merge/17-merge.js"
+            }
+        }
+    },
+    "node-red-contrib-web-of-things": {
+        "name": "node-red-contrib-web-of-things",
+        "version": "1.2.0",
+        "local": true,
+        "nodes": {
+            "wot-thing": {
+                "name": "wot-thing",
+                "types": [
+                    "consumed-thing"
+                ],
+                "enabled": true,
+                "local": true,
+                "module": "node-red-contrib-web-of-things",
+                "file": "/data/node_modules/node-red-contrib-web-of-things/src/wot-thing.js"
+            },
+            "wot-property": {
+                "name": "wot-property",
+                "types": [
+                    "read-property",
+                    "write-property"
+                ],
+                "enabled": true,
+                "local": true,
+                "module": "node-red-contrib-web-of-things",
+                "file": "/data/node_modules/node-red-contrib-web-of-things/src/wot-property.js"
+            },
+            "wot-action": {
+                "name": "wot-action",
+                "types": [
+                    "invoke-action"
+                ],
+                "enabled": true,
+                "local": true,
+                "module": "node-red-contrib-web-of-things",
+                "file": "/data/node_modules/node-red-contrib-web-of-things/src/wot-action.js"
+            },
+            "wot-event": {
+                "name": "wot-event",
+                "types": [
+                    "subscribe-event"
+                ],
+                "enabled": true,
+                "local": true,
+                "module": "node-red-contrib-web-of-things",
+                "file": "/data/node_modules/node-red-contrib-web-of-things/src/wot-event.js"
+            }
+        }
+    },
+    "node-red-contrib-stackhero-mysql": {
+        "name": "node-red-contrib-stackhero-mysql",
+        "version": "1.0.5",
+        "local": true,
+        "nodes": {
+            "stackhero-mysql": {
+                "name": "stackhero-mysql",
+                "types": [
+                    "Stackhero-MySQL-Server",
+                    "Stackhero-MySQL"
+                ],
+                "enabled": true,
+                "local": true,
+                "module": "node-red-contrib-stackhero-mysql",
+                "file": "/data/node_modules/node-red-contrib-stackhero-mysql/src/main.js"
+            }
+        }
+    },
+    "node-red-node-mongodb": {
+        "name": "node-red-node-mongodb",
+        "version": "0.2.5",
+        "local": false,
+        "nodes": {
+            "mongo": {
+                "name": "mongo",
+                "types": [
+                    "mongodb",
+                    "mongodb out",
+                    "mongodb in"
+                ],
+                "enabled": true,
+                "local": true,
+                "module": "node-red-node-mongodb",
+                "file": "/data/node_modules/node-red-node-mongodb/66-mongodb.js"
             }
         }
     }

@@ -6,6 +6,9 @@
     "dependencies": {
         "node-red-contrib-merge": "^0.1.1",
         "node-red-contrib-mqtt-broker": "~0.2.5",
-        "node-red-dashboard": "^2.23.0"
+        "node-red-contrib-stackhero-mysql": "~1.0.5",
+        "node-red-contrib-web-of-things": "^1.2.0",
+        "node-red-dashboard": "^2.23.0",
+        "node-red-node-mongodb": "~0.2.5"
     }
 }

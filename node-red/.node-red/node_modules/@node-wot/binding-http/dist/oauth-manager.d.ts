@@ -1,0 +1,8 @@
+import { OAuth2SecurityScheme } from '@node-wot/td-tools';
+import { OAuthCredential } from './credential';
+export default class OAuthManager {
+    private tokenStore;
+    constructor();
+    handleClientCredential(securityScheme: OAuth2SecurityScheme, credentials: any): OAuthCredential;
+    handleResourceOwnerCredential(securityScheme: OAuth2SecurityScheme, credentials: any): OAuthCredential;
+}

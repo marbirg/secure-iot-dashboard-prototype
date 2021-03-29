@@ -1,0 +1,33 @@
+import { APIKeySecurityScheme } from "@node-wot/td-tools";
+import { Token } from "client-oauth2";
+import { Request } from 'node-fetch';
+export declare abstract class Credential {
+    abstract sign(request: Request): Promise<Request>;
+}
+export declare class BasicCredential extends Credential {
+    private readonly username;
+    private readonly password;
+    constructor({ username, password }: {
+        username: string;
+        password: string;
+    });
+    sign(request: Request): Promise<Request>;
+}
+export declare class BearerCredential extends Credential {
+    private readonly token;
+    constructor(token: string);
+    sign(request: Request): Promise<Request>;
+}
+export declare class BasicKeyCredential extends Credential {
+    private readonly apiKey;
+    private readonly options;
+    constructor(apiKey: string, options: APIKeySecurityScheme);
+    sign(request: Request): Promise<Request>;
+}
+export declare class OAuthCredential extends Credential {
+    private token;
+    private readonly refresh;
+    constructor(token: Token | Promise<Token>, refresh?: () => Promise<Token>);
+    sign(request: Request): Promise<Request>;
+    refreshToken(): Promise<OAuthCredential>;
+}
