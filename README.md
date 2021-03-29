@@ -20,3 +20,17 @@
   
   ## NodeRed - Middleware
   The NodeRed middleware should be available on 'http://localhost:1880'
+
+## Mongo DB:
+Node red needs the data base to use a pasword.
+To set a password run:
+use <database>
+db.createUser({user:"nodered", pwd:"nodered", roles:[{role:"readWrite", db:"test"}]})
+db.createUser({user:"nodered", pwd:"nodered", roles:[{role:"readWrite", db:"hospital"}]})
+Source: https://docs.mongodb.com/manual/tutorial/create-users/#username-password-authentication
+
+Update user:
+db.updateUser("nodered", {roles:[{role:"readWrite", db:"hospital"},{role:"readWrite", db:"test"}]}) 
+To enter mongo cli:
+make mongo_bash
+mongo -u root -p example
