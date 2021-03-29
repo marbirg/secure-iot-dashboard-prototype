@@ -30,9 +30,9 @@ class FakePulseSensor(Thing):
     _max_value = 170
     _min_value = 40
     
-    def __init__(self, classification=None, name=None):
+    def __init__(self, device_id, classification=None, name=None):
         type(self)._instance_number+=1
-        self.device_id = FakePulseSensor._id_prefix + str(type(self)._instance_number) #id
+        self.device_id = device_id #FakePulseSensor._id_prefix + str(type(self)._instance_number) #id
         self.name = name if name else self.device_id
         self.classification = classification if classification else DLM()
 
