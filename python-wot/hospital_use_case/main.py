@@ -5,7 +5,7 @@ from __future__ import division, print_function
 # parentdir = os.path.dirname(currentdir)
 # sys.path.insert(0,"/home/marcus/code/wot-classification-poc/python-wot/webthing-python")
 
-from webthing import (Action, Event, Property, MultipleThings, Thing, Value,
+from webthing import (Action, Event, Property, MultipleThings, SingleThing, Thing, Value,
                       WebThingServer)
 
 from things.mock_DimmableLight import MockDimmableLight
@@ -44,10 +44,11 @@ def run_server():
     data = readConfig(CONFIG_FILE)
     name = data['name']
     readers = data['readers']
+    device_id = data['id']
     # Create DLM:
     dlm = DLM()
     dlm.addPolicy(name, readers)
-    pulseSensor = FakePulseSensor(classification=dlm)
+    pulseSensor = FakePulseSensor(device_id, classification=dlm, name=name)
 
     sensors = [pulseSensor]
     # If adding more than one thing, use MultipleThings() with a name.
@@ -55,8 +56,12 @@ def run_server():
     hostname = 'wot'#+str(random.randint(0,1000))
     endpoint_name = 'pulsesensor'+str(random.randint(0,1000))
     # print("Hostname:",hostname)
-    server = WebThingServer(MultipleThings(sensors,endpoint_name),
-                            hostname=hostname, port=8888, debug=True)
+    # server = WebThingServer(MultipleThings(sensors,endpoint_name),
+                            # hostname=hostname, port=8888, debug=True)
+                            
+    PORT = int(os.getenv("PORT", 8888))
+    server = WebThingServer(SingleThing(pulseSensor),
+                            hostname=hostname, port=PORT, debug=True)
     try:
         logging.info('starting the server')
         server.start()

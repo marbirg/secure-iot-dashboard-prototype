@@ -1,4 +1,5 @@
 {
+    "id": "mock:pulse:patientA",
     "name":"PatientA",
     "readers":["PatientA", "Doctors"]
 }
