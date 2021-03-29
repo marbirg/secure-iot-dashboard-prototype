@@ -99,8 +99,8 @@ services:
   node-red:
     image: nodered/node-red
     ports:
-    - 1880:1880
-    - 1881:1881
+    - 2880:1880
+    - 2881:1881
     links:
     - patient-a
     - patient-b
@@ -112,3 +112,29 @@ services:
     - taxi-c2
     volumes:
     - ./node-red/.node-red:/data
+  # mariadb:
+  #   image: mariadb
+  #   restart: 'no'
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: example
+  # adminer:
+  #   image: adminer
+  #   restart: 'no'
+  #   ports:
+  #     - 9090:8080
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: 'root'
+      MONGO_INITDB_ROOT_PASSWORD: 'example'
+    volumes:
+      - ./data/mongodb:/data/db
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 8081:8081
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: 'root'
+      ME_CONFIG_MONGODB_ADMINPASSWORD: 'example'
