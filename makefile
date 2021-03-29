@@ -18,6 +18,9 @@ reset-thingsboard:
 run:
 	docker-compose up -d
 
+build-run:
+	docker-compose up -d --build
+
 restart:
 	docker-compose restart
 
@@ -25,10 +28,13 @@ stop:
 	docker-compose down
 
 logs:
-	docker-compose logs -f
+	docker-compose logs -f --tail 50
 
 node-red_bash:
-	docker exec -it wot-poc_node-red_1 /bin/bash
+	docker-compose exec node-red /bin/bash
+
+mongo_bash:
+	docker-compose exec mongo /bin/bash
 
 wot_logs:
 	docker logs -f wot-poc_wot_1
