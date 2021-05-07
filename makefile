@@ -40,7 +40,7 @@ wot_logs:
 	docker logs -f wot-poc_wot_1
 
 node-red_logs:
-	docker logs -f wot-classification-poc_node-red_1
+	docker-compose logs -f node-red
 
 thingsboard_logs:
 	docker logs -f wot-classification-poc_thingsboard_1
