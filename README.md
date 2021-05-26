@@ -21,6 +21,15 @@
   ## NodeRed - Middleware
   The NodeRed middleware should be available on 'http://localhost:1880'
 
+  user:password=admin:nodered
+  user:password=guest:guest
+
+  ### Securing Node-RED:
+  Source: https://nodered.org/docs/user-guide/runtime/securing-node-red#editor--admin-api-security
+  Edit settings.js -> adminAuth
+  Generate hash: ``node -e "console.log(require('bcryptjs').hashSync(process.argv[1], 8));" your-password-here``
+  (run in nodered docker in /data directory)
+
 ## Mongo DB:
 Node red needs the data base to use a pasword.
 To set a password run:
