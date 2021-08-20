@@ -40,7 +40,7 @@ services:
       - ./python-wot:/usr/src/app
     environment:
       - FRIENDLY_NAME=taxi-position-companyA1
-      - CONFIG_FILE=taxi_car_use_case/configA.json
+      - CONFIG_FILE=taxi_car_use_case/configA1.json
   taxi-a2:
     build:
       context: ./python-wot
@@ -51,7 +51,7 @@ services:
       - ./python-wot:/usr/src/app
     environment:
       - FRIENDLY_NAME=taxi-position-companyA2
-      - CONFIG_FILE=taxi_car_use_case/configA.json
+      - CONFIG_FILE=taxi_car_use_case/configA2.json
   taxi-b1:
     build:
       context: ./python-wot
@@ -62,7 +62,7 @@ services:
       - ./python-wot:/usr/src/app
     environment:
       - FRIENDLY_NAME=taxi-position-companyB1
-      - CONFIG_FILE=taxi_car_use_case/configB.json
+      - CONFIG_FILE=taxi_car_use_case/configB1.json
   taxi-b2:
     build:
       context: ./python-wot
@@ -73,7 +73,7 @@ services:
       - ./python-wot:/usr/src/app
     environment:
       - FRIENDLY_NAME=taxi-position-companyB2
-      - CONFIG_FILE=taxi_car_use_case/configB.json
+      - CONFIG_FILE=taxi_car_use_case/configB2.json
   taxi-c1:
     build:
       context: ./python-wot
@@ -84,7 +84,7 @@ services:
       - ./python-wot:/usr/src/app
     environment:
       - FRIENDLY_NAME=taxi-position-companyC1
-      - CONFIG_FILE=taxi_car_use_case/configC.json
+      - CONFIG_FILE=taxi_car_use_case/configC1.json
   taxi-c2:
     build:
       context: ./python-wot
@@ -95,7 +95,7 @@ services:
       - ./python-wot:/usr/src/app
     environment:
       - FRIENDLY_NAME=taxi-position-companyC2
-      - CONFIG_FILE=taxi_car_use_case/configC.json
+      - CONFIG_FILE=taxi_car_use_case/configC2.json
   node-red:
     image: nodered/node-red
     ports:
