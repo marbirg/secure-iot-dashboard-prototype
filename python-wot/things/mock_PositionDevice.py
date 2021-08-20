@@ -24,14 +24,14 @@ class FakePositionDevice(Thing):
     _id_prefix = 'mock:position:'
     _instance_number = 0
     _values = [1,2,3,4]
-    
-    def __init__(self, classification='private', name=None):
-        FakePositionDevice._instance_number+=1
-        self.device_id = FakePositionDevice._id_prefix + str(uuid.uuid4()) #id
-        
+    def __init__(self, device_id, classification=None, name=None):
+        type(self)._instance_number+=1
+        self.device_id = device_id #FakePulseSensor._id_prefix + str(type(self)._instance_number) #id
         self.name = name if name else self.device_id
+        self.classification = classification if classification else DLM()
 
-        print("Create new device:", self.name)
+        print("Create new device:", self.name,"With classification:",classification)
+
         self._position_index = random.randint(0, len(FakePositionDevice._values)-1) 
         self._position = FakePositionDevice._values[self._position_index] # Initial value
         Thing.__init__(
