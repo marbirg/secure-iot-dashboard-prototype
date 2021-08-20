@@ -2,7 +2,7 @@ from __future__ import division, print_function
 import os
 import json
 
-from webthing import (Action, Event, Property, MultipleThings, Thing, Value,
+from webthing import (Action, Event, Property, MultipleThings, SingleThing, Thing, Value,
                       WebThingServer)
 # from things.mock_DimmableLight import MockDimmableLight
 # from things.mock_MovementSensor import FakeMovementSensor
@@ -40,13 +40,13 @@ def run_server():
     data = readConfig(CONFIG_FILE)
     policy_owner = data['owner']
     readers = data['readers']
-
+    device_id = data['id']
     # Create DLM:
     dlm = DLM()
     dlm.addPolicy(policy_owner, readers)
 
     # Create position device:
-    positionDevice = FakePositionDevice(dlm, NAME)
+    positionDevice = FakePositionDevice(device_id, dlm, NAME)
     # companyA = CabCompany('CustomerA', nCars=2)
     # companyB = CabCompany('CustomerB', nCars=2)
     # companyC = CabCompany('CustomerC', nCars=2)
@@ -62,9 +62,13 @@ def run_server():
     # If adding more than one thing, use MultipleThings() with a name.
     # In the single thing case, the thing's name will be broadcast.
     endpoint_name = 'taxiposition'+str(random.randint(0,1000))
-    server = WebThingServer(MultipleThings(sensors,
-                                           endpoint_name),
+    # server = WebThingServer(MultipleThings(sensors,
+    #                                        endpoint_name),
+    #                         hostname='wot', port=8888, debug=True)
+
+    server = WebThingServer(SingleThing(positionDevice),
                             hostname='wot', port=8888, debug=True)
+
     try:
         logging.info('starting the server')
         server.start()

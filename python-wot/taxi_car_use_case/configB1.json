@@ -1,0 +1,5 @@
+{
+    "id": "mock:position:cabB1",
+    "owner":"CompanyB",
+    "readers":["CompanyB"]
+}
