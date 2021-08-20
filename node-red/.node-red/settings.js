@@ -125,12 +125,12 @@ module.exports = {
 	users: [
 	    {
 		username: "admin",
-		password: "$2a$08$bXJcVapnqNBb3ettl7S3T.8cMCvdPrpzMehIN2YDyQt737WyFUGRi",
+		password: "$2a$08$TBFXYEYRnzug902wsitRTeKBFsaabBODOAIxyj0oCU1FtATai525G",
 		permissions: "*"
 	    },
 	    {
 		username: "guest",
-		password: "$2a$08$K2wpbjj79dwW9MLm.SvAmedQOIUYVxA5BpMnhShavUz.sQX97PQ3i",
+		password: "$2a$08$0/T6HFdr/217sSpIMk7OuOIri58WFtulo7IT8Vvaw99Zr6TwnVYBm",
 		permissions: "read"
 	    }
 	]
