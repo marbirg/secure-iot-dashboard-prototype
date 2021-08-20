@@ -1,7 +1,7 @@
 {
     "node-red": {
         "name": "node-red",
-        "version": "1.2.8",
+        "version": "1.2.9",
         "local": false,
         "nodes": {
             "inject": {
@@ -643,6 +643,24 @@
             }
         }
     },
+    "node-red-contrib-stackhero-mysql": {
+        "name": "node-red-contrib-stackhero-mysql",
+        "version": "1.0.5",
+        "local": true,
+        "nodes": {
+            "stackhero-mysql": {
+                "name": "stackhero-mysql",
+                "types": [
+                    "Stackhero-MySQL-Server",
+                    "Stackhero-MySQL"
+                ],
+                "enabled": true,
+                "local": true,
+                "module": "node-red-contrib-stackhero-mysql",
+                "file": "/data/node_modules/node-red-contrib-stackhero-mysql/src/main.js"
+            }
+        }
+    },
     "node-red-contrib-web-of-things": {
         "name": "node-red-contrib-web-of-things",
         "version": "1.2.0",
@@ -688,24 +706,6 @@
                 "local": true,
                 "module": "node-red-contrib-web-of-things",
                 "file": "/data/node_modules/node-red-contrib-web-of-things/src/wot-event.js"
-            }
-        }
-    },
-    "node-red-contrib-stackhero-mysql": {
-        "name": "node-red-contrib-stackhero-mysql",
-        "version": "1.0.5",
-        "local": true,
-        "nodes": {
-            "stackhero-mysql": {
-                "name": "stackhero-mysql",
-                "types": [
-                    "Stackhero-MySQL-Server",
-                    "Stackhero-MySQL"
-                ],
-                "enabled": true,
-                "local": true,
-                "module": "node-red-contrib-stackhero-mysql",
-                "file": "/data/node_modules/node-red-contrib-stackhero-mysql/src/main.js"
             }
         }
     },
