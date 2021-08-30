@@ -25,6 +25,7 @@ Use the following url: http://<IP>:2880/declassified-dist
 
 Name it Public cab distribution
 
+Import CompanyA-Dashboard-Example.json
 
 ## Grafana
 Docs: https://grafana.com/docs/grafana/latest/administration/configuration/
@@ -37,17 +38,8 @@ Default: admin:admin
 
 ## Plugins:
 
-### Simple json data source plugin
-To get data using REST
-Documentation: https://grafana.com/grafana/plugins/grafana-simple-json-datasource
+### Manual Installation
 
-Comment: Seams to dependent on back-end implementation
-
-#### Installation
-sudo grafana-cli plugins install grafana-simple-json-datasource
-sudo service grafana-server restart
-
-### Json API
-
-### Installation
+#### Json API
 grafana-cli plugins install marcusolsson-json-datasource
+sudo service grafana-server restart
